@@ -28,6 +28,11 @@ public class Panda {
     public Panda() {
     }
 
+    @Override
+    public String toString() {
+        return "我是熊猫啦啦啦啦~";
+    }
+
     public Panda(String name, Boolean sex) {
         this.name = name;
         this.sex = sex;

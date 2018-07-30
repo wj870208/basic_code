@@ -19,14 +19,15 @@ public class Main {
         int sum = 0;
         for (int i = 0; i < arrs.size(); i++) {
             if( arrs.get(i).equals("def")){
+//            if (arrs.get(i) == "def") {
                 sum++;
                 arrs.remove(i);
                 i--;
             }
         }
-        System.out.println("\"def\"字符串一共出现了"+sum+"个");
+        System.out.println("\"def\"字符串一共出现了" + sum + "个");
         for (int i = 0; i < arrs.size(); i++) {
-            System.out.print(arrs.get(i)+"\t");
+            System.out.print(arrs.get(i) + "\t");
         }
     }
 }

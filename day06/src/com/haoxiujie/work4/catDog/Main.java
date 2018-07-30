@@ -18,5 +18,8 @@ public class Main {
         dog.lookHome();
         System.out.print(panda.isSex() + "的" + panda.getName() + "正在");
         panda.actingCute();
+        System.out.println(panda);
+        String str = panda.toString();
+        System.out.println(str);
     }
 }

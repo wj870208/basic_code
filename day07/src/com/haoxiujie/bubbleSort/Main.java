@@ -14,7 +14,7 @@ public class Main {
         }
 
         //开始排序 从小到大
-        for (int j= arri.length; j >0; j--) {
+        for (int j = arri.length; j > 0; j--) {
             for (int i = 1; i < j; i++) {
                 if (arri[i - 1] > arri[i]) {
                     int temp = arri[i - 1];
@@ -25,7 +25,7 @@ public class Main {
         }
 
         for (int i = 0; i < arri.length; i++) {
-            System.out.print(arri[i]+"\t");
+            System.out.print(arri[i] + "\t");
         }
 
     }
