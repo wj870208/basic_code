@@ -19,10 +19,16 @@ public class Main {
         String smallStr = sc.next();
         int count = smallOfBig(bigStr, smallStr);
         System.out.println("共出现：" + count + "次");
-
+        System.out.println("共出现：" + sOB(bigStr, smallStr) + "次");//老师讲的方法
     }
 
-    public static int smallOfBig(String bigStr, String smallStr) {
+    //老师讲的一个比较有趣的方法：
+    private static int sOB(String bigStr, String smallStr) {
+        String newStr = bigStr.replace(smallStr, "");//将要替换的内容替换为空字符串
+        return (bigStr.length() - newStr.length()) / smallStr.length();//次数为 大字符串-新字符串 即差值，除以小字符串的长度
+    }
+
+    private static int smallOfBig(String bigStr, String smallStr) {
         int count = 0;
         for (int i = 0; i < bigStr.length(); ) {
             if (count == 0) {

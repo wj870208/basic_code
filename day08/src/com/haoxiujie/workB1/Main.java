@@ -19,11 +19,11 @@ public class Main {
         System.out.print("请输入要删除的字符串：");
         String delStr = sc.nextLine();
         int count = 0;
-        while (scrStr.indexOf(delStr)!=-1){//如果有要删除的
+        while (scrStr.indexOf(delStr) != -1) {//如果有要删除的
             count++;
             int begin = scrStr.indexOf(delStr);
-            scrStr = scrStr.substring(0,begin)+scrStr.substring(begin+delStr.length());
+            scrStr = scrStr.substring(0, begin) + scrStr.substring(begin + delStr.length());
         }
-        System.out.println("源字符串中总共包含:"+count+"个 java ,   删除java后的字符串为:"+scrStr);
+        System.out.println("源字符串中总共包含:" + count + "个\"" + delStr + "\", 删除\"" + delStr + "\"后的字符串为:" + scrStr);
     }
 }
