@@ -1,6 +1,6 @@
 package com.haoxiujie.workA1;
 
-public class Book {//图书类
+public class Book extends Object{//图书类
     private String name;//名称
     private double price;//价格
 
