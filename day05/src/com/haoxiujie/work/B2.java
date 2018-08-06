@@ -1,4 +1,4 @@
-package com.haoxiujie.day05.work;
+package com.haoxiujie.work;
 
 import java.util.Scanner;
 

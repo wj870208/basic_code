@@ -1,9 +1,10 @@
 package com.haoxiujie.workA2;
 
 public class Product {
-    //名称name（String类型）
+    // 名称name（String类型）
     //        价格price（double类型）
     //        类型type（String类型）
+    //        生成以上成员变量的set/get方法
     private String name;
     private double price;
     private String type;
@@ -40,4 +41,5 @@ public class Product {
         this.price = price;
         this.type = type;
     }
+
 }

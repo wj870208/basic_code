@@ -1,4 +1,4 @@
-package com.haoxiujie.day05.work;
+package com.haoxiujie.work;
 
 public class B3 {
     public static void main(String[] args) {
