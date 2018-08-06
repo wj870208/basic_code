@@ -28,10 +28,10 @@ public class Person {
         this.age = age;
     }
 
-    public void startExercise(Fitness fitness){
-        System.out.println(name+"开始锻炼");
-        Plan p = new Plan("热身","锻炼");
+    public void startExercise(Fitness fitness) {
+        System.out.println(name + "开始锻炼");
+        Plan p = new Plan("热身", "锻炼");
         fitness.info();
-        fitnessPlan(Plan p);
+        fitness.fitnessPlan(p);
     }
 }
