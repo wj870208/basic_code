@@ -30,7 +30,7 @@ public class Person {
 
     public void startExercise(Fitness fitness) {
         System.out.println(name + "开始锻炼");
-        Plan p = new Plan("热身", "锻炼");
+        Plan p = new Plan("跑步", "哑铃");
         fitness.info();
         fitness.fitnessPlan(p);
     }
