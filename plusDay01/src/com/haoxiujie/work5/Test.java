@@ -10,7 +10,7 @@ public class Test {
             for (int j = 7; j <= 9; j++)
                 for (int k = 7; k <= 9; k++) {
                     if (i != j && i != k && j != k) {
-                        sb.append(i * 100 + j * 10 + k).append(" ");
+                        sb.append(i).append(j).append(k).append(" ");
                     }
                 }
         System.out.println(sb);
