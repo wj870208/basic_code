@@ -6,13 +6,16 @@ public class Test {
     //    注：要求使用StringBuilder来完成
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 7; i <= 9; i++)
-            for (int j = 7; j <= 9; j++)
-                for (int k = 7; k <= 9; k++) {
-                    if (i != j && i != k && j != k) {
-                        sb.append(i).append(j).append(k).append(" ");
+        int[] i = {7, 8, 9};
+        for (int i1 : i) {
+            for (int i2 : i) {
+                for (int i3 : i) {
+                    if (i1 != i2 && i1 != i3 && i2 != i3) {
+                        sb.append(i1).append(i2).append(i3).append(" ");
                     }
                 }
+            }
+        }
         System.out.println(sb);
     }
 }
