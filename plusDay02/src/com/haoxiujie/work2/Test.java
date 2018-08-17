@@ -26,11 +26,16 @@ public class Test {
             }
         }
 
-        for (int i = 0; i < als.size(); i++) {
-            if (als.get(i).getAge() == maxage) {
-                als.get(i).setName("小猪佩奇");
+        for (Student al : als) {
+            if (al.getAge() == maxage) {
+                al.setName("小猪佩奇");
             }
         }
+//        for (int i = 0; i < als.size(); i++) {
+////            if (als.get(i).getAge() == maxage) {
+//                als.get(i).setName("小猪佩奇");
+//            }
+//        }
         System.out.println(als);
     }
 }
