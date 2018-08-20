@@ -26,23 +26,15 @@ public class Puker implements Comparable<Puker> {
                 '}';
     }
 
-    private void setId(byte id) {
-        this.id = id;
-    }
-
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    private void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
+    private int getId() {
         return id;
     }
 
-    public Puker(String name) {
+    Puker(String name) {
         this.name = name;
         if (name.equals("大王")) {
             this.id = 17;
@@ -51,29 +43,33 @@ public class Puker implements Comparable<Puker> {
         }
     }
 
-    public Puker(String hs, String sz) {
-        StringBuilder name = new StringBuilder(hs);
-        name.append(sz);
-        this.name = name.toString();
-        if (sz.equals("2")) {
-            this.id = 15;
-        } else if (sz.equals("A")) {
-            this.id = 14;
-        } else if (sz.equals("K")) {
-            this.id = 13;
-        } else if (sz.equals("Q")) {
-            this.id = 12;
-        } else if (sz.equals("J")) {
-            this.id = 11;
-        } else {
-            this.id = Byte.valueOf(sz);
+    Puker(String hs, String sz) {
+        this.name = hs + sz;
+        switch (sz) {
+            case "2":
+                this.id = 15;
+                break;
+            case "A":
+                this.id = 14;
+                break;
+            case "K":
+                this.id = 13;
+                break;
+            case "Q":
+                this.id = 12;
+                break;
+            case "J":
+                this.id = 11;
+                break;
+            default:
+                this.id = Byte.valueOf(sz);
+                break;
         }
     }
 
     @Override
     public int compareTo(Puker o) {
-        int ct = 0;
-        ct = o.getId() - this.getId();
+        int ct = o.getId() - this.getId();
         if (ct == 0) {
             ct = o.getName().indexOf(0) - this.getName().indexOf(0);
         }

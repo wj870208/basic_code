@@ -6,11 +6,23 @@ package com.haoxiujie.puker;
      */
 
 import java.util.Collections;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
+        Random rd = new Random();
+        Scanner sc = new Scanner(System.in);
+        PukerList[] users = new PukerList[3];
+
+        // 0.上座
+        for (int i = 0; i < 3; i++) {
+            System.out.print("请输入user" + (i + 1) + "的姓名：");
+            users[i] = new PukerList(sc.nextLine());
+        }
+
         // 1.准备牌
-        PukerList pukers = new PukerList();
+        PukerList pukers = new PukerList("源牌");
         pukers.add(new Puker("大王"));
         pukers.add(new Puker("小王"));
         String[] hs = {"♥", "♣", "♦", "♠"};
@@ -24,32 +36,66 @@ public class Test {
         Collections.shuffle(pukers);
 
         // 3.发牌
-        PukerList user1 = new PukerList();
-        PukerList user2 = new PukerList();
-        PukerList user3 = new PukerList();
-        PukerList sys = new PukerList();
+        PukerList sys = new PukerList("底牌");
 
         for (int i = 0; i < pukers.size(); i++) {
             if (i >= pukers.size() - 3) {
                 sys.add(pukers.get(i));
-            } else if (i % 3 == 0) {
-                user1.add(pukers.get(i));
-            } else if (i % 3 == 1) {
-                user2.add(pukers.get(i));
-            } else if (i % 3 == 2) {
-                user3.add(pukers.get(i));
+            } else {
+                users[i % 3].add(pukers.get(i));
             }
         }
         // 整理牌
-        Collections.sort(user1);
-        Collections.sort(user2);
-        Collections.sort(user3);
-        Collections.sort(sys);
+        for (PukerList user : users) {
+            user.sort();
+        }
+        sys.sort();
 
         // 看牌
-        System.out.println("user1:" + user1);
-        System.out.println("user2:" + user2);
-        System.out.println("user3:" + user3);
-        System.out.println("底牌:" + sys);
+        for (PukerList user : users) {
+            System.out.println(user);
+        }
+        System.out.println("开始叫地主...");
+
+        // 叫分
+        int begin = rd.nextInt(3);
+        int[] jf = new int[3];
+        int maxjf = 0;
+        int maxjfuser = -1;
+        System.out.println("从" + users[begin].getName() + "开始叫分！");
+        for (int i = begin; i < begin + 3; i++) {
+            System.out.print("请" + users[i % 3].getName() + "叫分：");
+//            jf[i % 3] = sc.nextInt();
+            int tempjf;
+            do {
+                tempjf = sc.nextInt();
+                if (tempjf < 0 || tempjf > 3) {
+                    System.out.print("请重新输入0-3之间的分：");
+                }
+            } while (tempjf < 0 || tempjf > 3);
+            jf[i % 3] = tempjf;
+            if (jf[i % 3] > maxjf) {
+                maxjf = jf[i % 3];
+                maxjfuser = i % 3;
+                if (maxjf == 3) {
+                    break;
+                }
+            }
+        }
+        System.out.println("地主为：" + users[maxjfuser].getName() + "!");
+        System.out.println(sys);
+        for (Puker sy : sys) {
+            users[maxjfuser].add(sy);
+        }
+        sys.clear();
+
+        Collections.sort(users[maxjfuser]);
+
+        // 看牌
+        for (PukerList user : users) {
+            System.out.println(user);
+        }
     }
+
+
 }
