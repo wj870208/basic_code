@@ -8,9 +8,9 @@ public class Guizi {
     //     (1)调用存放物品方法时，传入要存入的物品名称，判断储物柜是否有空余容量，
     // 有空余则提示存放物品成功，返回一个四位数的取货码。
     //		(2)调用取物方法时,传入取货码，打印出对应的物品名称，若无对应的物品则提示取货码不正确；
-    HashMap<Integer, String> map = new HashMap<>();
+    private HashMap<Integer, String> map = new HashMap<>();
 
-    public boolean quChu(int i) {
+    boolean quChu(int i) {
         if (!map.containsKey(i)) {
             System.out.println("提货码不正确");
             return false;

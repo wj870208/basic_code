@@ -18,15 +18,15 @@ public class Test {
         //产生10个长度为10的不能重复的字符串(里面只能出现大写字母、小写字母、0-9的数字)，
         HashSet<String> strSet = new HashSet<>();
         while (strSet.size() < 10) {
-            strSet.add(rdString(10));
+            strSet.add(rdString());
         }
         System.out.println(strSet);
     }
 
-    private static String rdString(int length) {
+    private static String rdString() {
         StringBuilder sb = new StringBuilder();
         Random rd = new Random();
-        while (sb.length() < length) {
+        while (sb.length() < 10) {
             char c = (char) (rd.nextInt());
             if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
                 sb.append(c);

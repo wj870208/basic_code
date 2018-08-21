@@ -6,14 +6,13 @@ import java.util.Set;
 
 public class Test {
     //2.初始化数据将若干Student对象存入List集合
-    //	3.以班级为单位,使用Map存储所有该班学生
-    //	4.统计每个班级的总分和平均分
     public static void main(String[] args) {
         ArrayList<Student> list = new ArrayList<>();
         list.add(new Student("张1", "1班", 10));
         list.add(new Student("张11", "1班", 11));
         list.add(new Student("张2", "2班", 20));
         list.add(new Student("张22", "2班", 22));
+        //	3.以班级为单位,使用Map存储所有该班学生
         HashMap<String, ArrayList<Student>> map = new HashMap<>();
         for (Student student : list) {
             if (map.get(student.getClass_number()) == null) {

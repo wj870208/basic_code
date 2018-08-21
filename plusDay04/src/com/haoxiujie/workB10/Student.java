@@ -32,34 +32,15 @@ public class Student {
         return Objects.hash(name, class_number, score);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getClass_number() {
+    String getClass_number() {
         return class_number;
     }
 
-    public void setClass_number(String class_number) {
-        this.class_number = class_number;
-    }
-
-    public double getScore() {
+    double getScore() {
         return score;
     }
 
-    public void setScore(double score) {
-        this.score = score;
-    }
-
-    public Student() {
-    }
-
-    public Student(String name, String class_number, double score) {
+    Student(String name, String class_number, double score) {
         this.name = name;
         this.class_number = class_number;
         this.score = score;
