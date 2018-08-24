@@ -21,14 +21,18 @@ public class Guizi {
     }
 
     public int cunFang(String s) {
-        if (!(map.size() <= rongLiang)) {
-            System.out.println("容量不足了哦~");
-            return -1;
+        if (!(map.size() < rongLiang)) {
+            try {
+                throw new RongLiangException("容量不足了哦~");
+            } catch (RongLiangException e) {
+                e.printStackTrace();
+                return -1;
+            }
         }
         Random rd = new Random();
-        int i = rd.nextInt(9999);
+        int i = rd.nextInt(10000);
         while (map.containsKey(i)) {
-            i = rd.nextInt(9999);
+            i = rd.nextInt(10000);
         }
         map.put(i, s);
         return i;

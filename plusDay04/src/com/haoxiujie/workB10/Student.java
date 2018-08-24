@@ -41,8 +41,15 @@ public class Student {
     }
 
     Student(String name, String class_number, double score) {
+        try {
+            if (score < 0) {
+                throw new FuShuException("成绩为负数~");
+            }
+            this.score = score;
+        } catch (FuShuException e) {
+            e.printStackTrace();
+        }
         this.name = name;
         this.class_number = class_number;
-        this.score = score;
     }
 }

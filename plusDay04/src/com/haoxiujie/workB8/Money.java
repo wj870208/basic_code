@@ -49,6 +49,12 @@ public class Money {
     }
 
     public Money(int mianZhi, boolean zhenJia) {
+        try {
+            if (!zhenJia)
+                throw new JiaQianException("哇 这张钱是假哒~");
+        } catch (JiaQianException e) {
+            e.printStackTrace();
+        }
         this.mianZhi = mianZhi;
         this.zhenJia = zhenJia;
     }

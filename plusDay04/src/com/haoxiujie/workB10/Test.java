@@ -9,7 +9,7 @@ public class Test {
     public static void main(String[] args) {
         ArrayList<Student> list = new ArrayList<>();
         list.add(new Student("张1", "1班", 10));
-        list.add(new Student("张11", "1班", 11));
+        list.add(new Student("张11", "1班", -11));
         list.add(new Student("张2", "2班", 20));
         list.add(new Student("张22", "2班", 22));
         //	3.以班级为单位,使用Map存储所有该班学生
@@ -17,12 +17,11 @@ public class Test {
         for (Student student : list) {
             if (map.get(student.getClass_number()) == null) {
                 ArrayList<Student> students = new ArrayList<>();
-                students.add(student);
                 map.put(student.getClass_number(), students);
+                students.add(student);
             } else {
                 ArrayList<Student> students = map.get(student.getClass_number());
                 students.add(student);
-                map.put(student.getClass_number(), students);
             }
         }
         //	4.统计每个班级的总分和平均分
