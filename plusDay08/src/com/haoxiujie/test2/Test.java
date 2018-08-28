@@ -1,4 +1,4 @@
-package test2;
+package com.haoxiujie.test2;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -11,7 +11,7 @@ public class Test {
 
     private static void showFileAll(File file) {
         System.out.println(file.getAbsolutePath());
-        File[] files = file.listFiles((File pathname) -> pathname.getName().toLowerCase().endsWith(".java") || pathname.isDirectory());
+        File[] files = file.listFiles(pathname -> pathname.getName().toLowerCase().endsWith(".java") || pathname.isDirectory());
         for (File f : files) {
             if (f.isDirectory()) {
                 showFileAll(f);
