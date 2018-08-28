@@ -1,4 +1,4 @@
-package com.haoxiujie.test1;
+package com.haoxiujie.test1baoza.test1;
 
 public class XiaoFeiZhe extends Thread {
     private Baozi bz;

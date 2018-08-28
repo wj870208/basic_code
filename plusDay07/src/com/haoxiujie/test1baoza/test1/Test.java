@@ -1,4 +1,4 @@
-package com.haoxiujie.test1;
+package com.haoxiujie.test1baoza.test1;
 
 public class Test {
     //生产者-消费者问题

@@ -1,10 +1,10 @@
-package com.haoxiujie.test1;
+package com.haoxiujie.test1baoza.test1;
 
-public class TestA1 {
+public class ToStringTest{
     static int i= 1;
     public static void main(String args[]){
-        System.out.println("love " + new TestA1());//love java
-        TestA1 a = new TestA1();
+        System.out.println("love " + new ToStringTest());//love java
+        ToStringTest a = new ToStringTest();
         a.i++;
         System.out.println("me " + a.i);//me 2
     }

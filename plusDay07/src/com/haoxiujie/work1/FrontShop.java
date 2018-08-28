@@ -22,10 +22,7 @@ public class FrontShop implements Runnable {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                } else {
-                    fruit.notify();
-                    break;
-                }
+                } else break;
             }
         }
     }

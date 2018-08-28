@@ -1,4 +1,4 @@
-package com.haoxiujie.test1;
+package com.haoxiujie.test1baoza.test1;
 
 public class TestA2 {
     public static void main(String[] args) {
