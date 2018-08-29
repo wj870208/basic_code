@@ -16,7 +16,7 @@ public class Test {
         LinkedList<File> dir = new LinkedList<>();
         alf.add(file);
         do {
-            file = alf.remove(0);
+            file = alf.removeFirst();
             File[] files = file.listFiles();
             for (File f : files) {
                 if (f.isDirectory()) {
@@ -27,8 +27,8 @@ public class Test {
             }
             dir.add(file);
         } while (alf.size() > 0);
-        for (int i = dir.size() - 1; i >= 0; i--) {
-            dir.get(i).delete();
+        while (dir.size() > 0) {
+            dir.removeLast().delete();
         }
     }
 
@@ -36,7 +36,7 @@ public class Test {
         LinkedList<File> alf = new LinkedList<>();
         alf.add(file);
         do {
-            file = alf.remove(0);
+            file = alf.removeFirst();
             File[] files = file.listFiles();
             for (File f : files) {
                 if (f.isDirectory()) {
