@@ -20,7 +20,7 @@ public class Test {
         hm = showAccept(hm, file);
         Set<Map.Entry<String, Integer>> entries = hm.entrySet();
         for (Map.Entry<String, Integer> entry : entries) {
-            System.out.println(entry.getKey() + " 类型的文件有 " + entry.getValue() + " 个 ");
+            System.out.println(entry.getKey() + " 类型的文件有 " + entry.getValue() + " 个。 ");
         }
     }
 
