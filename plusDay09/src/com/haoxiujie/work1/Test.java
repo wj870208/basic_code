@@ -19,40 +19,48 @@ public class Test {
     //	   否：将键盘录入的用户名及密码写入user.txt文件，并在控制台提示：注册成功
 
     public static void main(String[] args) {
-        File file = new File("plusDay09\\src\\com\\haoxiujie\\work1\\user.txt");
         Scanner sc = new Scanner(System.in);
-        HashMap<String, String> hm = new HashMap<>();
-        try (FileReader reader = new FileReader(file); FileWriter fw = new FileWriter(file, true);) {
-            //新建字符串读字符串
-            String userString = null;
-            char[] chars = new char[1024];
-            int len;
-            while ((len = reader.read(chars)) != -1) {
-                userString = new String(chars, 0, len);
-            }
-            String[] split = userString.split("\r\n");
-            for (String s : split) {
-                String[] user = s.split(",");
-                hm.put(user[0], user[1]);
-            }
-            //↑将用户名和密码转换成为了HashMap
-            System.out.println("请输入要注册用户名：");
-            String newName = sc.nextLine();
-            if (hm.containsKey(newName)) {
-                System.out.println("用户名已存在");
-                return;
-            }
-            System.out.println("请输入密码：");
-            String newKey = sc.nextLine();
+        File file = new File("plusDay09\\src\\com\\haoxiujie\\work1\\user.txt");
+        HashMap<String, String> users = fileToHashMap(file);
+        //↑将用户名和密码转换成为了HashMap
+        System.out.println("请输入要注册用户名：");
+        String newName = sc.nextLine();
+        if (users.containsKey(newName)) {
+            System.out.println("用户名已存在");
+            return;
+        }
+        System.out.println("请输入密码：");
+        String newKey = sc.nextLine();
 
-
-            StringBuilder sb = new StringBuilder("\r\n");
-            sb.append(newName).append(",").append(newKey);
+        StringBuilder sb = new StringBuilder("\r\n");
+        sb.append(newName).append(",").append(newKey);
+        try (FileWriter fw = new FileWriter(file, true)) {
             fw.write(sb.toString());
-            System.out.println("注册成功！");
-
         } catch (IOException e) {
             System.out.println(e);
         }
+        System.out.println("注册成功！");
+    }
+
+
+    private static HashMap<String, String> fileToHashMap(File file) {
+        HashMap<String, String> hm = new HashMap<>();
+        //新建字符串读字符串
+        StringBuilder userString = new StringBuilder();
+        char[] chars = new char[1024];
+        int len;
+        try (FileReader reader = new FileReader(file)) {
+            while ((len = reader.read(chars)) != -1) {
+                userString.append(new String(chars, 0, len));
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        String[] split = userString.toString().split("\r\n");
+        for (String s : split) {
+            String[] user = s.split(",");
+            hm.put(user[0], user[1]);
+        }
+        return hm;
     }
 }

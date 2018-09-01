@@ -1,6 +1,3 @@
 jack,123
 rose,123
 tom,123
-haoxiujie,123456
-HXJ,9231412
-masa,4

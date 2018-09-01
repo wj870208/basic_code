@@ -1,7 +1,6 @@
 package com.haoxiujie.workA11;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class Test {
     //对Java基础班学生的考试成绩进行排序
