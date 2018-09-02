@@ -12,12 +12,11 @@ public class Test {
     //		第四次及之后运行控制台输出:本软件只能免费使用3次,欢迎您注册会员后继续使用~
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         File countFile = new File("plusDay10\\src\\com\\haoxiujie\\work1\\cou.txt");
-        countFile.createNewFile();
         Cou cou;
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(countFile))) {
             Object o = ois.readObject();
             cou = (Cou) o;
-        } catch (EOFException e) {
+        } catch (FileNotFoundException e) {
             cou = new Cou(1);
         }
 
