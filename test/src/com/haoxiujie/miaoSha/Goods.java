@@ -36,42 +36,30 @@ public class Goods {
         return Objects.hash(brand, address, price);
     }
 
-    public String getBrand() {
+    String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public int getNum() {
+    int getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    void setNum(int num) {
         this.num = num;
     }
 
-    public String getAddress() {
+    String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public double getPrice() {
+    double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public Goods() {
     }
 
-    public Goods(String brand, int num, String address, double price) {
+    Goods(String brand, int num, String address, double price) {
         this.brand = brand;
         this.num = num;
         this.address = address;

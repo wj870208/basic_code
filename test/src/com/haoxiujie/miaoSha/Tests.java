@@ -5,20 +5,20 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Tests {
-    public static boolean isContinue() {//是否继续
+class Tests {
+    static boolean isContinue() {//是否继续
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         try {
             if (s.equals("Y") || s.equals("y") || Integer.parseInt(s) == 1) {
                 return true;
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException ignored) {
         }
         return false;
     }
 
-    public static boolean isEndtime() {//设置秒杀活动的时间
+    static boolean isEndtime() {//设置秒杀活动的时间
         File file = new File("test\\src\\com\\haoxiujie\\miaoSha\\endtime.properties");
         Properties prop = new Properties();
         //设置秒杀时间
@@ -37,17 +37,13 @@ public class Tests {
             if (nowtime >= endtime) {
                 return false;
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
         return true;
     }
 
-    public static HashMap<Integer, String> getFenlei() {//获取分类HashMap
+    static HashMap<Integer, String> getFenlei() {//获取分类HashMap
         Properties prop = new Properties();
         HashMap<Integer, String> hm = new HashMap<>();
         File file = new File("test\\src\\com\\haoxiujie\\miaoSha\\仓库.txt");
@@ -57,15 +53,13 @@ public class Tests {
             for (Object o : num) {
                 hm.put(Integer.parseInt((String) o), (String) prop.get(o));
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return hm;
     }
 
-    public static ArrayList<Goods> getMingxi(String fenlei) {//获取明细ArrayList
+    static ArrayList<Goods> getMingxi(String fenlei) {//获取明细ArrayList
         ArrayList<Goods> alg = new ArrayList<>();
         File file = new File("test\\src\\com\\haoxiujie\\miaoSha\\" + fenlei + ".txt");
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -85,7 +79,7 @@ public class Tests {
         return alg;
     }
 
-    public static void writeGoods(String fenlei, HashMap<String, Goods> hmgoodsName) {//写入库存文件
+    static void writeGoods(String fenlei, HashMap<String, Goods> hmgoodsName) {//写入库存文件
         Set<Map.Entry<String, Goods>> entries = hmgoodsName.entrySet();
         File file = new File("test\\src\\com\\haoxiujie\\miaoSha\\" + fenlei + ".txt");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
@@ -99,7 +93,7 @@ public class Tests {
         }
     }
 
-    public static void printTxt(Person person, ArrayList<Goods> list) {
+    static void printTxt(Person person, ArrayList<Goods> list) {
         boolean dis = person.isDis();
         double add = 0;
         File file;

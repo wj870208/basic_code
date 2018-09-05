@@ -11,7 +11,7 @@ public class Test {
         begin(alGWC);
     }
 
-    public static void begin(ArrayList<Goods> alGWC) {
+    private static void begin(ArrayList<Goods> alGWC) {
         System.out.print("请选择是否参加秒杀活动(1代表参加, 2代表不参加):");
         if (!Tests.isContinue()) {//不参加就结束
             return;
@@ -29,7 +29,7 @@ public class Test {
             if (fenlei.equals("")) {
                 System.out.print("您选择的商品分类不存在，请选择还要继续参加秒杀活动么？");
                 if (!Tests.isContinue()) {
-                    break fenlei;
+                    break;
                 } else {
                     continue;
                 }
@@ -48,10 +48,9 @@ public class Test {
                     }
                 }
                 System.out.println("您选择的分类下，有如下商品：");
-                showMX(alMX, 2);
+                showMX(alMX);
 
                 //Tests.buyGoods();//购买商品
-                goumai:
                 while (true) {
                     HashMap<String, Goods> hmgoodsName = hmgoodsName(alMX);
                     System.out.print("请输入您要购买的商品：");
@@ -82,7 +81,7 @@ public class Test {
                     }
                     if (buyNum < 0 || buyNum > goodsnum) {
                         System.out.println("\n数量输入有误。\n");
-                        continue goumai;
+                        continue;
                     }
 
                     //购买成功之前，将原有商品列表中的该商品数量减少，并将该商品重新写回到文件中。
@@ -132,10 +131,10 @@ public class Test {
     }
 
 
-    public static String Fenlei() {
+    private static String Fenlei() {
         HashMap<Integer, String> hmFL = Tests.getFenlei();
         System.out.println("参与秒杀活动商品的分类信息如下：");
-        showHM(hmFL, 2);
+        showHM(hmFL);
         System.out.print("请选择您要购买的商品分类：");
         Scanner sc = new Scanner(System.in);
         int i;
@@ -150,37 +149,29 @@ public class Test {
         return hmFL.get(i);
     }
 
-    public static void showHM(HashMap hm, int i) {//第二个参数为样式，1为数列，2为横排
+    private static void showHM(HashMap hm) {//第二个参数为样式，1为数列，2为横排
         Set set = hm.keySet();
         for (Object o : set) {
-            if (i == 1) {
-                System.out.println(o + ": " + hm.get(o));
-            } else if (i == 2) {
-                System.out.print(o + "=" + hm.get(o) + "\t");
-            }
+            System.out.print(o + "=" + hm.get(o) + "\t");
         }
         System.out.println();
     }
 
-    private static void showMX(ArrayList<Goods> alMX, int i) {//第二个参数为数量显示状态，1为明细，2为概况
+    private static void showMX(ArrayList<Goods> alMX) {//第二个参数为数量显示状态，1为明细，2为概况
         System.out.println("名称\t\t数量\t\t产地\t\t价格");
         for (Goods mx : alMX) {
-            if (i == 1) {
-                System.out.println(mx.getBrand() + "\t\t" + mx.getNum() + "\t\t" + mx.getAddress() + "\t\t" + mx.getPrice());
-            } else if (i == 2) {
-                String s;
-                int num = mx.getNum();
-                if (num >= 5) {
-                    s = "充足";
-                } else if (num > 2) {
-                    s = "有货";
-                } else if (num >= 1) {
-                    s = "紧缺";
-                } else {
-                    s = "售罄";
-                }
-                System.out.println(mx.getBrand() + "\t\t" + s + "\t\t" + mx.getAddress() + "\t\t" + mx.getPrice());
+            String s;
+            int num = mx.getNum();
+            if (num >= 5) {
+                s = "充足";
+            } else if (num > 2) {
+                s = "有货";
+            } else if (num >= 1) {
+                s = "紧缺";
+            } else {
+                s = "售罄";
             }
+            System.out.println(mx.getBrand() + "\t\t" + s + "\t\t" + mx.getAddress() + "\t\t" + mx.getPrice());
         }
     }
 

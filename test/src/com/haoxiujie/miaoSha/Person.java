@@ -2,7 +2,6 @@ package com.haoxiujie.miaoSha;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Person implements Distributionable<Goods> {
@@ -48,28 +47,16 @@ public class Person implements Distributionable<Goods> {
         this.name = name;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
-    public String getTel() {
+    String getTel() {
         return tel;
     }
 
-    public String getAddress() {
+    String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public boolean isDis() {
+    boolean isDis() {
         return dis;
-    }
-
-    public void setDis(boolean dis) {
-        this.dis = dis;
     }
 
     public Person(String name, String tel, String address) {
@@ -102,7 +89,7 @@ public class Person implements Distributionable<Goods> {
         Tests.printTxt(this, list);
     }
 
-    public void undeserving(ArrayList<Goods> list) {//不配送
+    void undeserving(ArrayList<Goods> list) {//不配送
         this.dis = false;
         Scanner sc = new Scanner(System.in);
         System.out.print("请输入用户名：");
