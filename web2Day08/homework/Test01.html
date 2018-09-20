@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单练习</title>
+</head>
+<body>
+<!--定义表单 form-->
+<form>
+    <table border="1" align="center" width="500">
+        <form action="#" method="get">
+            <tr>
+                <td><label for="username">用户名</label></td>
+                <td><input type="text" name="username" id="username" placeholder="请输入用户名"></td>
+            </tr>
+            <tr>
+                <td><label for="password">密码</label></td>
+                <td><input type="password" name="password" id="password" placeholder="请输入密码"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="email" name="email" id="email" placeholder="请输入邮箱"></td>
+            </tr>
+            <tr>
+                <td><label for="phoneNum">手机号</label></td>
+                <td><input type="text" name="phoneNum" id="phoneNum"></td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td>
+                    <input type="radio" name="sex" value="m" checked>男
+                    <input type="radio" name="sex" value="f">女
+                </td>
+            </tr>
+            <tr>
+                <td>爱好</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="Java" checked>Java
+                    <input type="checkbox" name="hobby" value="PHP">PHP
+                    <input type="checkbox" name="hobby" value="UI">UI
+                </td>
+            </tr>
+            <tr>
+                <td><label for="birthDay">生日</label></td>
+                <td><input type="date" name="birthDay" id="birthDay"></td>
+            </tr>
+            <tr>
+                <td>省份</td>
+                <td>
+                    <select name="Ad" id="">
+                        <option value="AH">安徽省</option>
+                        <option value="BJ">北京市</option>
+                        <option value="FJ">福建省</option>
+                        <option value="GS">甘肃省</option>
+                        <option value="GD">广东省</option>
+                        <option value="GX">广西壮族自治区</option>
+                        <option value="GZ">贵州省</option>
+                        <option value="HI">海南省</option>
+                        <option value="HE">河北省</option>
+                        <option value="HA">河南省</option>
+                        <option value="HL">黑龙江省</option>
+                        <option value="HB">湖北省</option>
+                        <option value="HN">湖南省</option>
+                        <option value="JL">吉林省</option>
+                        <option value="JS">江苏省</option>
+                        <option value="JX">江西省</option>
+                        <option value="LN">辽宁省</option>
+                        <option value="NM">内蒙古自治区</option>
+                        <option value="NX">宁夏回族自治区</option>
+                        <option value="QH">青海省</option>
+                        <option value="SD">山东省</option>
+                        <option value="SX">山西省</option>
+                        <option value="SN">陕西省</option>
+                        <option value="SH">上海市</option>
+                        <option value="SC">四川省</option>
+                        <option value="TJ">天津市</option>
+                        <option value="XZ">西藏自治区</option>
+                        <option value="XJ">新疆维吾尔自治区</option>
+                        <option value="YN">云南省</option>
+                        <option value="ZJ" selected>浙江省</option>
+                        <option value="CQ">重庆市</option>
+                        <option value="MO">澳门特别行政区</option>
+                        <option value="HK">香港特别行政区</option>
+                        <option value="TW">台湾省</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="注册"></td>
+            </tr>
+        </form>
+    </table>
+</form>
+
+</body>
+</html>

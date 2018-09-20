@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动和清除浮动练习</title>
+    <style>
+        .divF {
+            height: 50px;
+            width: 50px;
+            border: 1px solid blue;
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<!--<div >
+    <div style="height: 50px;width: 50px;border:1px solid blue ;float: left;">
+
+    </div>
+    <div class="clear"></div>
+</div>-->
+
+<!--3行，第一行2个div，第二行3个div，第3行 4个div-->
+<div>
+    <div class="divF"></div>
+    <div class="divF"></div>
+    <div class="clear"></div>
+</div>
+<div>
+    <div class="divF"></div>
+    <div class="divF"></div>
+    <div class="divF"></div>
+    <div class="clear"></div>
+</div>
+<div>
+    <div class="divF"></div>
+    <div class="divF"></div>
+    <div class="divF"></div>
+    <div class="divF"></div>
+    <div class="clear"></div>
+</div>
+</body>
+</html>

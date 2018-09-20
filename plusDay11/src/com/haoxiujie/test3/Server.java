@@ -14,7 +14,6 @@ public class Server {
                 public void run() {
                     try {
                         InputStream is = accept.getInputStream();
-
                         BufferedReader br = new BufferedReader(new InputStreamReader(is));
                         String[] s = br.readLine().split(" ");
                         String httpPath = s[1].substring(1);
