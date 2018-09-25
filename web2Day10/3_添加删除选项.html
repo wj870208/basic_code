@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加删除选项</title>
+</head>
+<body>
+<select name="选项" id="s">
+    <option>选项1</option>
+</select>
+<input type="text" id="text" placeholder="请输入要添加的选项">
+<input type="button" value="添加" id="add">
+<input type="button" value="删除" id="remove">
+</body>
+<script>
+    var add = document.getElementById("add");
+    var remove = document.getElementById("remove");
+    var select = document.getElementsByTagName("select")[0];
+    var text = document.getElementById("text");
+    add.onclick = function () {
+        var option = document.createElement("option");
+        option.innerHTML = text.value;
+        select.appendChild(option);
+    }
+
+    remove.onclick = function () {
+        var option = document.getElementsByTagName("option")[0];
+        select.removeChild(option);
+    }
+</script>
+</html>

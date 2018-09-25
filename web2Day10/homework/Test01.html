@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手动选老婆</title>
+
+</head>
+<body>
+
+<img src="img/1.jpg" width="200px" height="200px" id="img"/>
+
+
+<script>
+    var img = document.getElementById("img");
+    var imgIndex = 1;
+    img.onclick = function () {
+        imgIndex == 9 ? imgIndex = 1 : imgIndex++;
+        img.src = "img/" + imgIndex + ".jpg";
+    }
+</script>
+</body>
+</html>

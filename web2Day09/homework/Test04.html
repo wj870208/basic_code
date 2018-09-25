@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS基础语法综合练习</title>
+    <!--<script>
+        function method(n) {
+            var count = 0;
+            if (n < 10) {
+                for (var i = 100; i < 1000; i++) {
+                    var ge = i % 10;
+                    var shi = Math.floor(i / 10) % 10;
+                    var bai = Math.floor(i / 100) % 10;
+                    if (ge <= n && shi <= n && bai <= n && ge != shi && ge != bai && shi != bai) {
+                        count++;
+                    }
+                }
+            }
+            return count;
+
+        }
+
+        alert(method(2));
+    </script>-->
+
+
+    <script>
+        var method = function (n) {
+            var count = 0;
+            if (n < 10) {
+                for (var i = 100; i < 1000; i++) {
+                    var ge = i % 10;
+                    var shi = Math.floor(i / 10) % 10;
+                    var bai = Math.floor(i / 100) % 10;
+                    if (ge <= n && shi <= n && bai <= n && ge != shi && ge != bai && shi != bai) {
+                        count++;
+                    }
+                }
+            }
+            return count;
+        }
+        alert(method(2));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

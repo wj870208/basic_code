@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<img id="imgEle" src="img/10.jpg" width="200px" height="200px"/>
+<form action="#" method="post">
+    <br>
+    设置高度：
+    <input type="text" name="height" id="height" placeholder="请输入高度,要求带单位px">
+    <br>
+    设置宽度：
+    <input type="text" name="width" id="width" placeholder="请输入宽度,要求带单位px">
+    <br>
+    <input type="button" value="修改宽高" id="change">
+</form>
+
+<script>
+    var img = document.getElementById("imgEle");
+    var height = document.getElementById("height");
+    var width = document.getElementById("width");
+    var change = document.getElementById("change");
+
+    change.onclick = function () {
+        img.height = parseFloat(height.value);
+        img.width = parseFloat(width.value);
+    }
+</script>
+</body>
+</html>

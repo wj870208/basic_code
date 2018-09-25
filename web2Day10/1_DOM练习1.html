@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM练习</title>
+</head>
+<body>
+<img src="./img/1.jpg" alt="加载失败" id="pic" width="200px" height="200px">
+
+<script>
+    var pic = 1;
+    var picDom = document.getElementById("pic");
+    window.onload = function () {
+        picDom.onclick = function () {
+            pic++;
+            if (pic > 10) {
+                pic = 1;
+            }
+            picDom.src = "./img/" + pic + ".jpg";
+        }
+    }
+</script>
+</body>
+</html>

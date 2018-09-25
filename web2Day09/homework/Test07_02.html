@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水仙花数</title>
+</head>
+<body>
+<script>
+    for (var i = 100; i < 1000; i++) {
+        var ge = i % 10;
+        var shi = Math.floor(i / 10) % 10;
+        var bai = Math.floor(i / 100) % 10;
+        if (ge * ge * ge + shi * shi * shi + bai * bai * bai == i) {
+            console.log(i)
+        }
+    }
+</script>
+</body>
+</html>

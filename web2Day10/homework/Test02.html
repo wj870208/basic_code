@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<img id="imgEle" height="200" width="200" src="img/1.jpg"/>
+<input type="submit" value="开始" id="begin">
+<input type="submit" value="停止" id="stop">
+
+<script>
+    var img = document.getElementById("imgEle");
+    var imgIndex = 1;
+
+    function imgInterval() {
+        imgIndex == 9 ? imgIndex = 1 : imgIndex++;
+        img.src = "img/" + imgIndex + ".jpg";
+    }
+
+    var id;
+    document.getElementById("begin").onclick = function () {
+        id = setInterval(imgInterval, 50);
+    }
+    document.getElementById("stop").onclick = function () {
+        clearInterval(id);
+    }
+</script>
+</body>
+</html>

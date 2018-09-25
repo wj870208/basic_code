@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选老婆</title>
+    <script>
+        // Test04.html中的代码是想完整的实现第3题的需求的。
+        // 但是不知道什么原因导致很多效果都没有实现。要求借助debug找到所有的问题并修正。本题10分
+
+        window.onload=function(){
+            time=setInterval("changeImg",100);
+        }
+        function changeImg(){
+            //获取img对象
+            var i=0;
+            i++;
+            var imgEle=document.getElementById("LPImg");
+            if(i>9){
+                i=1;
+            }
+            imgEle.src="img/"+i+".jpg";
+        }
+        function changeText() {
+            var s="女";
+            //获取img对象
+            var imgEle=document.getElementById("LPImg");
+            imgEle.src.split(".")
+            if(i==1||i==2){
+                s="男";
+            }
+            var span = document.getElementById("tipSpan");
+            span.innerHTML=s;
+        }
+        function stopOrStart(){
+            var time=null;
+			var btnEle=document.getElementById("bnt");
+
+            if(time!=null){
+                //说明之前有定时器，要清空
+                clearInterval(time);
+                time=null;
+                btnEle.value="点我开始";
+                changeText();
+            }else{
+                //说明没有定时器，设置定时器
+                time=setInterval("changeImg()",100);
+
+                btnEle.value="点我停止";
+            }
+
+
+        }
+        function tips() {
+            alert("手往哪放呢！");
+        }
+    </script>
+</head>
+<body>
+
+<img class="LPImg" src="img/1.jpg" width="200px" height="200px" onmouseover="tips();"/>
+<input type="button" id="btn" value="点我停止" onclick="stopOrStart();"/>
+你的性取向为：<span id="tipSpan"></span>
+
+
+</body>
+</html>

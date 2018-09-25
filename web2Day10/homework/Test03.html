@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选老婆</title>
+
+
+</head>
+<body>
+
+<img src="img/1.jpg" width="200px" height="200px" id="img"/>
+<input type="button" value="点我开始" id="button">
+你的性取向为：
+<input type="text" value="男" id="sex">
+
+<script>
+    var img = document.getElementById("img");
+    var button = document.getElementById("button");
+    var sex = document.getElementById("sex");
+
+    var imgIndex = 1;
+    var but = true;
+    var id;
+
+    function Interval() {
+        imgIndex == 9 ? imgIndex = 1 : imgIndex++;
+        img.src = "img/" + imgIndex + ".jpg";
+    }
+
+    img.onmouseover = function () {
+        alert("手往哪放呐~")
+    }
+    button.onclick = function () {
+        if (but) {
+            id = setInterval(Interval, 100)
+            button.value = "点我停止";
+            but = !but;
+        } else {
+            clearInterval(id);
+            if (imgIndex == 1 || imgIndex == 2) {
+                sex.value = "男";
+            } else {
+                sex.value = "女";
+            }
+            button.value = "点我开始";
+            but = !but;
+        }
+    }
+</script>
+</body>
+</html>
