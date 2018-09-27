@@ -4,30 +4,87 @@
     <meta charset="UTF-8">
     <title>表格全选</title>
     <style>
-        table{
+        table {
             border: 1px solid;
             width: 500px;
             margin-left: 30%;
         }
 
-        td,th{
+        td, th {
             text-align: center;
             border: 1px solid;
         }
-        div{
+
+        div {
             margin-top: 10px;
             margin-left: 30%;
         }
 
-        .out{
+        .out {
             background-color: white;
         }
-        .over{
+
+        .over {
             background-color: pink;
         }
     </style>
 
+    <script>
+        window.onload = function (ev) {
+            var firstCb = document.getElementById("firstCb");
+            var cbs = document.getElementsByName("cb");
+            firstCb.onclick = function () {
+                for (var i = 1; i < cbs.length; i++) {
+                    cbs[i].checked = firstCb.checked;
+                }
+            }
+            var selectAll = document.getElementById("selectAll");//全选
+            selectAll.onclick = function () {
+                for (var i = 1; i < cbs.length; i++) {
+                    cbs[i].checked = true;
+                }
+            }
+            var unSelectAll = document.getElementById("unSelectAll");//全不选
+            unSelectAll.onclick = function () {
+                for (var i = 1; i < cbs.length; i++) {
+                    cbs[i].checked = false;
+                }
+            }
+            var selectRev = document.getElementById("selectRev");//反选
+            selectRev.onclick = function () {
+                for (var i = 1; i < cbs.length; i++) {
+                    cbs[i].checked = !cbs[i].checked;
+                }
+            }
 
+            //粉色
+            var trs = document.getElementsByTagName("tr");
+            for (var i = 0; i < trs.length; i++) {
+                trs[i].setAttribute("onmouseover", "mOver(this);");
+                trs[i].setAttribute("onmouseout", "mOut(this);");
+            }
+
+            //window被点击一下，全选都应该判断一次
+            window.onclick = function () {
+                var flag = true;
+                for (var i = 1; i < cbs.length; i++) {
+                    if (!cbs[i].checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                firstCb.checked = flag;
+            }
+        }
+
+        function mOver(obj) {
+            obj.setAttribute("class", "over");
+        }
+
+        function mOut(obj) {
+            obj.setAttribute("class", "out");
+        }
+    </script>
 
 </head>
 <body>
@@ -43,7 +100,7 @@
     </tr>
 
     <tr>
-        <td><input type="checkbox"  name="cb" ></td>
+        <td><input type="checkbox" name="cb"></td>
         <td>1</td>
         <td>令狐冲</td>
         <td>男</td>
@@ -51,7 +108,7 @@
     </tr>
 
     <tr>
-        <td><input type="checkbox"  name="cb" ></td>
+        <td><input type="checkbox" name="cb"></td>
         <td>2</td>
         <td>任我行</td>
         <td>男</td>
@@ -59,7 +116,7 @@
     </tr>
 
     <tr>
-        <td><input type="checkbox"  name="cb" ></td>
+        <td><input type="checkbox" name="cb"></td>
         <td>3</td>
         <td>岳不群</td>
         <td>?</td>

@@ -3,37 +3,55 @@
 <head>
     <meta charset="utf-8">
     <title></title>
+    <!--实现鼠标控制-->
+    <script>
+        window.onload = function () {
+            var flag = false;
+            window.onmousedown = function () {
+                flag = true;
+            }
+            window.onmouseup = function () {
+                flag = false;
+            }
+            window.onmousemove = function (ev) {
+                var redDiv = document.getElementById("redDiv");
+                if (flag) {
+                    redDiv.style.left = ev.clientX + "px";
+                    redDiv.style.top = ev.clientY + "px";
+                }
+            }
 
+
+            <!--实现键盘控制-->
+
+            window.onkeydown = function (ev) {
+                var redDiv = document.getElementById("redDiv");
+                var d = 50;
+                switch (ev.keyCode) {
+                    case 37:
+                    case 65:
+                        redDiv.style.left = parseFloat(redDiv.style.left) - d + "px";
+                        break;
+                    case 39:
+                    case 68:
+                        redDiv.style.left = parseFloat(redDiv.style.left) + d + "px"
+                        break;
+                    case 38:
+                    case 87:
+                        redDiv.style.top = parseFloat(redDiv.style.top) - d + "px";
+                        break;
+                    case 40:
+                    case 83:
+                        redDiv.style.top = parseFloat(redDiv.style.top) + d + "px";
+                        break;
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <div id="redDiv" style="left:0px;top:0px;position:absolute;background-color: red;height: 50px;width: 50px;">
 
 </div>
 </body>
-<script>
-
-    window.onkeydown = function (ev) {
-        var redDiv = document.getElementById("redDiv");
-        var d = 50;
-        switch (ev.keyCode) {
-            case 37:
-            case 65:
-                redDiv.style.left = parseFloat(redDiv.style.left) - d + "px";
-                break;
-            case 39:
-            case 68:
-                redDiv.style.left = parseFloat(redDiv.style.left) + d + "px"
-                break;
-            case 38:
-            case 87:
-                redDiv.style.top = parseFloat(redDiv.style.top) - d + "px";
-                break;
-            case 40:
-            case 83:
-                redDiv.style.top = parseFloat(redDiv.style.top) + d + "px";
-                break;
-        }
-    }
-
-</script>
 </html>

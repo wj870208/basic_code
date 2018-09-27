@@ -81,6 +81,14 @@
             "        <td>" + gender.value + "</td>\n" +
             "        <td><a href=\"javascript:void(0);\" onclick=\"delTr(this);\" >删除</a></td>\n" +
             "    </tr>"
+
+
+    }
+    //删除
+    function delTr(obj) {
+        var tabNode = obj.parentNode.parentNode.parentNode;
+        var tr = obj.parentNode.parentNode;
+        tabNode.removeChild(tr);
     }
 </script>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 定义数组：二维数组：
+        var arrs = new Array(5);
+        arrs[0] = new Array("杭州市", "绍兴市", "温州市", "义乌市", "嘉兴市");
+        arrs[1] = new Array("南京市", "苏州市", "扬州市", "无锡市");
+        arrs[2] = new Array("武汉市", "襄阳市", "荆州市", "宜昌市", "恩施");
+        arrs[3] = new Array("石家庄市", "唐山市", "保定市", "邢台市", "廊坊市");
+        arrs[4] = new Array("长春市", "吉林市", "四平市", "延边市");
+
+        function changeCity() {
+            //
+
+            var province = document.getElementById("province");
+            var city = document.getElementById("city");
+            // console.log(province);
+            //清空option，只留一个请选择
+            city.innerHTML="<option>-请选择-</option>";
+            var arrIndex = province.selectedIndex-1;
+            if(arrIndex>=0){
+                var datas = arrs[arrIndex];
+                //遍历数组  创建option对象并且添加到city的下拉列表中
+                for(var i = 0;i<datas.length;i++){
+                    //创建option对象
+                    var optionEle = document.createElement("option");
+                    optionEle.innerHTML=datas[i];
+                    //添加到city的下拉列表中
+                    city.appendChild(optionEle);
+                }
+            }
+
+            // console.log(datas);
+        }
+
+    </script>
+</head>
+<body>
+<select id="province" name="province" onchange="changeCity()">
+    <option>-请选择-</option>
+    <option>浙江省</option>
+    <option>江苏省</option>
+    <option>湖北省</option>
+    <option>河北省</option>
+    <option>吉林省</option>
+</select>
+<select id="city" name="city">
+    <option>-请选择-</option>
+</select>
+</body>
+</html>
